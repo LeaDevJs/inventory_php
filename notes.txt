@@ -1,0 +1,8 @@
+lo primero que hice fue crear una base de datos
+llamada inventario en phpmyadmin
+luego cree las tablas
+a la tabla de productos le puse a lo ultimo dos claves
+foraneas que son el id de la categoria y el id del usuario
+luego en la tabla hay que marcar que las ultimas dos son indices foraneos
+;relacione las tablas en el disenio. relacionando indices primarios con foraneos
+luego vi como crear un backup y es simplemente exportando la tabla

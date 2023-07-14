@@ -1,0 +1,36 @@
+<?php require "./inc/session_start.php";?>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+<?php include "./inc/head.php";?>
+</head>
+<body>
+<?php 
+//si la variable vista no existe o esta vacia la convertimos en login
+if(!isset($_GET["vista"]) or $_GET["vista"]==""){
+    $_GET["vista"]="login";
+}
+
+if(is_file("./vistas/".$_GET["vista"].".php") && $_GET["vista"] !="login" && $_GET["vista"]!="404"){
+    
+    //Cerrar sesion forzadamente
+    if((!isset($_SESSION['id']) or $_SESSION['id']=="") or (!isset($_SESSION['usuario']) or $_SESSION['usuario']=="")){
+        include "./vistas/logout.php";
+        exit();
+    }
+   
+    include "./inc/navbar.php";
+    include "./vistas/".$_GET['vista'].".php";
+    include "./inc/script.php";
+}else{
+    if($_GET["vista"]=="login"){
+        include "./vistas/login.php";
+    }else{
+        include "./vistas/404.php"; 
+    }
+}
+
+
+?>       
+</body>
+</html>
